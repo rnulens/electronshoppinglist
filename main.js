@@ -66,6 +66,23 @@ const mainMenuTemplate =  [
       {
         label:'Add Item',
         click(){
+          var request = require('request');
+
+          request({url: 'http://www.google.com/'}, function(err, res, json) {
+            if (err) {
+              throw err;
+            }
+            
+            var str = '[{ "name": "John Doe", "age": 42 }, { "name": "Jane Doe", "age": 38 }]';
+            var jsonData = JSON.parse(str);
+            for(var i = 0; i < jsonData.length; i++) {
+              console.log('adding: '+ JSON.stringify(jsonData[i]));
+              prettyStr = jsonData[i].name + ': ' + jsonData[i].age;
+              mainWindow.webContents.send('item:add', prettyStr);
+            }
+            console.log(json);
+          });
+          
           createAddWindow();
         }
       },

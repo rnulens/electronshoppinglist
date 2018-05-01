@@ -1,0 +1,17 @@
+electron
+
+- install node (windows 64bit)
+- powershell: node -v
+- npm install --save electron
+- create project & run node init
+  or clone project & check node info 
+  
+- run project: npm start
+
+- debug: https://electronjs.org/docs/tutorial/debugging-main-process-vscode
+	-> launch.json 
+	-> toggle breakpoint: F9
+	
+- api: client request
+	-> https://electronjs.org/docs/api/client-request
+	
